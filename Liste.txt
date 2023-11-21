@@ -1,0 +1,3 @@
+Lasse: 10
+Joris: 7
+Cooper: -10
