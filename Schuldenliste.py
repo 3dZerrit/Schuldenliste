@@ -1,9 +1,4 @@
-import linecache
-
-
-interrupt = 0
-
-while interrupt == 0:
+while True:
     UserInput = input()
 
     if UserInput == "print":
@@ -12,14 +7,14 @@ while interrupt == 0:
         print(printread)
         readerprint.close()
 
+    elif UserInput == "stop":
+        break
 
-    if UserInput == "stop":
-       interrupt = interrupt + 1
-
-    if UserInput == "add":
+    elif UserInput == "add":
         print("to whom (line number)")
         
-        line = linecache.getline("Liste.txt", int(input()))
+        reader = open("Liste.txt","r")
+        line = reader.read().split("\n")[int(input())]
         splitline = line.split(": ")
 
         numberlist = splitline[-1]
@@ -29,6 +24,5 @@ while interrupt == 0:
         
         Newdebt = int(numberlist) + int(addinput)
         print(Newdebt)
-
-            
-        
+    else:
+        print("nuh uh")
