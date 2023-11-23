@@ -1,5 +1,9 @@
 
 import json
+import colorama
+
+colorama.init()
+
 
 genopen = open("Liste.json", "r")
 Alldict = json.loads(genopen.read())
@@ -11,11 +15,20 @@ while True:
 
     if UserInput == "print":
         for printen in Alldict.keys():
-            print(f"{printen}: {str(Alldict[printen])}")
+            if Alldict[printen] == 0:
+                print(f"{printen}: {colorama.Fore.YELLOW}{str(Alldict[printen])}{colorama.Fore.RESET}")
 
+            elif Alldict[printen] < 0:
+                print(f"{printen}: {colorama.Fore.RED}{str(Alldict[printen])}{colorama.Fore.RESET}")
+    
+            elif Alldict[printen] > 0:
+                print(f"{printen}: {colorama.Fore.GREEN}{str(Alldict[printen])}{colorama.Fore.RESET}")
+            
+        
 
 
     elif UserInput == "stop":
+        print(f"{colorama.Fore.RED}Sucessfully stopped{colorama.Fore.RESET}")
         break
 
     elif UserInput == "add":
