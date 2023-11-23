@@ -10,7 +10,10 @@ while True:
     UserInput = input()
 
     if UserInput == "print":
-        pass
+        for printen in Alldict.keys():
+            print(f"{printen}: {str(Alldict[printen])}")
+
+
 
     elif UserInput == "stop":
         break
